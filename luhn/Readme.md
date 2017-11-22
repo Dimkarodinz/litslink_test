@@ -1,0 +1,2 @@
+Credit cards use a check digit algorithm called the Luhn algorithm. Write a function that takes one parameter, the credit card number, and returns true or false depending on whether the number is a valid number. Similarly, write a second function that takes a number of any length and calculates the Luhn check digit and returns the original number with the check digit appended on the end.
+For information on the Luhn algorithm: http://en.wikipedia.org/wiki/Luhn_algorithm
