@@ -15,10 +15,8 @@ class AddPermalinkToPosts < ActiveRecord::Migration[5.1]
 
   def update_each_post_permalink
     Post.find_each do |post|
-      next if post.title.blank?
-
-      unique_title = post.title + ' ' + SecureRandom.hex(6) 
-      post.permalink = unique_title.parameterize
+      unique_title   = "#{post.title} #{SecureRandom.hex(6)}"
+      post.permalink = unique_title.strip.parameterize
       post.save(validate: false)
     end
   end
