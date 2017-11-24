@@ -14350,3 +14350,605 @@ FOREIGN KEY ("services_id")
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
   [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (24.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (42.0ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:18.765679"], ["updated_at", "2017-11-24 22:12:18.765679"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (10.1ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 1], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (35.7ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:18.843652"], ["updated_at", "2017-11-24 22:12:18.843652"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:18.902644"], ["updated_at", "2017-11-24 22:12:18.902644"]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:18.908973"], ["updated_at", "2017-11-24 22:12:18.908973"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 2], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 2], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:18.912643"], ["updated_at", "2017-11-24 22:12:18.912643"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:18.915139"], ["updated_at", "2017-11-24 22:12:18.915139"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 3], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:18.917414"], ["updated_at", "2017-11-24 22:12:18.917414"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:18.922992"], ["updated_at", "2017-11-24 22:12:18.922992"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 4], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 4], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:18.926346"], ["updated_at", "2017-11-24 22:12:18.926346"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:18.928329"], ["updated_at", "2017-11-24 22:12:18.928329"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 5], ["created_at", "2017-11-24 22:12:18.930009"], ["updated_at", "2017-11-24 22:12:18.930009"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:18.936962"], ["updated_at", "2017-11-24 22:12:18.936962"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 6], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 6], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:18.940280"], ["updated_at", "2017-11-24 22:12:18.940280"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 6], ["created_at", "2017-11-24 22:12:18.942588"], ["updated_at", "2017-11-24 22:12:18.942588"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:18.948459"], ["updated_at", "2017-11-24 22:12:18.948459"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 7], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 7], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:18.952230"], ["updated_at", "2017-11-24 22:12:18.952230"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 7], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:19.026959"], ["updated_at", "2017-11-24 22:12:19.026959"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 8], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 8], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:19.030140"], ["updated_at", "2017-11-24 22:12:19.030140"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:19.032174"], ["updated_at", "2017-11-24 22:12:19.032174"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 9], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:19.109314"], ["updated_at", "2017-11-24 22:12:19.109314"]]
+  [1m[35m (32.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.4ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" = $1 AND "payments"."service_id" = $2 LIMIT $3[0m  [["line_item_id", 1], ["service_id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 10], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 10], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:19.148878"], ["updated_at", "2017-11-24 22:12:19.148878"]]
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.4ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (49.5ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (30.2ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'payment_race_test_test'[0m
+  [1m[35m (329.6ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:19.610246"], ["updated_at", "2017-11-24 22:12:19.610246"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.6ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" = $1 AND "payments"."service_id" = $2 LIMIT $3[0m  [["line_item_id", 1], ["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 1], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1], ["line_item_id", 1], ["created_at", "2017-11-24 22:12:19.623836"], ["updated_at", "2017-11-24 22:12:19.623836"]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (244.2ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:19.898274"], ["updated_at", "2017-11-24 22:12:19.898274"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" IS NULL LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 1], ["created_at", "2017-11-24 22:12:19.908935"], ["updated_at", "2017-11-24 22:12:19.908935"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.5ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" IS NULL AND "payments"."service_id" = $1 LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (255.1ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:12:20.196900"], ["updated_at", "2017-11-24 22:12:20.196900"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" IS NULL LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 1], ["created_at", "2017-11-24 22:12:20.208018"], ["updated_at", "2017-11-24 22:12:20.208018"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.4ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" IS NULL AND "payments"."service_id" = $1 LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.285118"], ["updated_at", "2017-11-24 22:13:02.285118"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 2], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 2], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.293231"], ["updated_at", "2017-11-24 22:13:02.293231"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 2], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.297022"], ["updated_at", "2017-11-24 22:13:02.297022"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.302629"], ["updated_at", "2017-11-24 22:13:02.302629"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 3], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 3], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.305829"], ["updated_at", "2017-11-24 22:13:02.305829"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.307963"], ["updated_at", "2017-11-24 22:13:02.307963"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 4], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.309807"], ["updated_at", "2017-11-24 22:13:02.309807"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.315380"], ["updated_at", "2017-11-24 22:13:02.315380"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 5], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 5], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.318434"], ["updated_at", "2017-11-24 22:13:02.318434"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.320677"], ["updated_at", "2017-11-24 22:13:02.320677"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 6], ["created_at", "2017-11-24 22:13:02.322306"], ["updated_at", "2017-11-24 22:13:02.322306"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.328830"], ["updated_at", "2017-11-24 22:13:02.328830"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 7], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 7], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.332240"], ["updated_at", "2017-11-24 22:13:02.332240"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 7], ["created_at", "2017-11-24 22:13:02.334295"], ["updated_at", "2017-11-24 22:13:02.334295"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.339499"], ["updated_at", "2017-11-24 22:13:02.339499"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 8], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 8], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.342501"], ["updated_at", "2017-11-24 22:13:02.342501"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 8], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.358150"], ["updated_at", "2017-11-24 22:13:02.358150"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 9], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 9], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.362368"], ["updated_at", "2017-11-24 22:13:02.362368"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.364399"], ["updated_at", "2017-11-24 22:13:02.364399"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 10], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.385576"], ["updated_at", "2017-11-24 22:13:02.385576"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.3ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" = $1 AND "payments"."service_id" = $2 LIMIT $3[0m  [["line_item_id", 1], ["service_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 11], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 11], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.398657"], ["updated_at", "2017-11-24 22:13:02.398657"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 11], ["id", 12], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 1], ["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.3ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" ORDER BY "payments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.1ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.4ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'payment_race_test_test'[0m
+  [1m[35m (295.6ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:02.750764"], ["updated_at", "2017-11-24 22:13:02.750764"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.4ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" = $1 AND "payments"."service_id" = $2 LIMIT $3[0m  [["line_item_id", 1], ["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 1], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1], ["line_item_id", 1], ["created_at", "2017-11-24 22:13:02.765461"], ["updated_at", "2017-11-24 22:13:02.765461"]]
+  [1m[35m (13.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 1], ["id", 1], ["line_item_id", 123], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 123], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "payments" SET "line_item_id" = $1, "updated_at" = $2 WHERE "payments"."id" = $3[0m  [["line_item_id", 123], ["updated_at", "2017-11-24 22:13:02.784376"], ["id", 1]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.4ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" ORDER BY "payments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPayment Load (0.3ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.3ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'payment_race_test_test'[0m
+  [1m[35m (272.8ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:03.094053"], ["updated_at", "2017-11-24 22:13:03.094053"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" IS NULL LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 1], ["created_at", "2017-11-24 22:13:03.105473"], ["updated_at", "2017-11-24 22:13:03.105473"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.5ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" IS NULL AND "payments"."service_id" = $1 LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.4ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 1], ["id", 1], ["line_item_id", 100500], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 100500], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "payments" SET "line_item_id" = $1, "updated_at" = $2 WHERE "payments"."id" = $3[0m  [["line_item_id", 100500], ["updated_at", "2017-11-24 22:13:03.120639"], ["id", 1]]
+  [1m[35m (11.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.3ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (16.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "payments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (266.3ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:13:03.448434"], ["updated_at", "2017-11-24 22:13:03.448434"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" IS NULL LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 1], ["created_at", "2017-11-24 22:13:03.459625"], ["updated_at", "2017-11-24 22:13:03.459625"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.3ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" IS NULL AND "payments"."service_id" = $1 LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.4ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 1], ["id", 1], ["line_item_id", 100500], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 100500], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "payments" SET "line_item_id" = $1, "updated_at" = $2 WHERE "payments"."id" = $3[0m  [["line_item_id", 100500], ["updated_at", "2017-11-24 22:13:03.496887"], ["id", 1]]
+  [1m[35m (12.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.4ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" IS NULL AND "payments"."service_id" = $1 LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" IS NULL LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 1], ["created_at", "2017-11-24 22:13:03.529997"], ["updated_at", "2017-11-24 22:13:03.529997"]]
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 1], ["id", 2], ["line_item_id", 100500], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 100500], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (255.1ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.697797"], ["updated_at", "2017-11-24 22:17:59.697797"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 1], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1], ["line_item_id", 1], ["created_at", "2017-11-24 22:17:59.706509"], ["updated_at", "2017-11-24 22:17:59.706509"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1], ["line_item_id", 1], ["created_at", "2017-11-24 22:17:59.710410"], ["updated_at", "2017-11-24 22:17:59.710410"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.716268"], ["updated_at", "2017-11-24 22:17:59.716268"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 2], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 2], ["line_item_id", 1], ["created_at", "2017-11-24 22:17:59.719842"], ["updated_at", "2017-11-24 22:17:59.719842"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.722205"], ["updated_at", "2017-11-24 22:17:59.722205"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 3], ["line_item_id", 1], ["created_at", "2017-11-24 22:17:59.724140"], ["updated_at", "2017-11-24 22:17:59.724140"]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.729429"], ["updated_at", "2017-11-24 22:17:59.729429"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 4], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 4], ["line_item_id", 1], ["created_at", "2017-11-24 22:17:59.732505"], ["updated_at", "2017-11-24 22:17:59.732505"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.734802"], ["updated_at", "2017-11-24 22:17:59.734802"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 5], ["created_at", "2017-11-24 22:17:59.736700"], ["updated_at", "2017-11-24 22:17:59.736700"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.743679"], ["updated_at", "2017-11-24 22:17:59.743679"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 6], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 6], ["line_item_id", 1], ["created_at", "2017-11-24 22:17:59.746873"], ["updated_at", "2017-11-24 22:17:59.746873"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 6], ["created_at", "2017-11-24 22:17:59.749050"], ["updated_at", "2017-11-24 22:17:59.749050"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.754464"], ["updated_at", "2017-11-24 22:17:59.754464"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 7], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 7], ["line_item_id", 1], ["created_at", "2017-11-24 22:17:59.757662"], ["updated_at", "2017-11-24 22:17:59.757662"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 7], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.774954"], ["updated_at", "2017-11-24 22:17:59.774954"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 8], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 8], ["line_item_id", 1], ["created_at", "2017-11-24 22:17:59.778306"], ["updated_at", "2017-11-24 22:17:59.778306"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.780433"], ["updated_at", "2017-11-24 22:17:59.780433"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 9], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:17:59.802186"], ["updated_at", "2017-11-24 22:17:59.802186"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.3ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" = $1 AND "payments"."service_id" = $2 LIMIT $3[0m  [["line_item_id", 1], ["service_id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 10], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 10], ["line_item_id", 1], ["created_at", "2017-11-24 22:17:59.816079"], ["updated_at", "2017-11-24 22:17:59.816079"]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 10], ["id", 11], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 1], ["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.3ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" ORDER BY "payments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.1ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.2ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'payment_race_test_test'[0m
+  [1m[35m (284.7ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:18:00.146125"], ["updated_at", "2017-11-24 22:18:00.146125"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.4ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" = $1 AND "payments"."service_id" = $2 LIMIT $3[0m  [["line_item_id", 1], ["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" = $2 LIMIT $3[0m  [["service_id", 1], ["line_item_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 LIMIT $2[0m  [["line_item_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "line_item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["service_id", 1], ["line_item_id", 1], ["created_at", "2017-11-24 22:18:00.161031"], ["updated_at", "2017-11-24 22:18:00.161031"]]
+  [1m[35m (13.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 1], ["id", 1], ["line_item_id", 123], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 123], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "payments" SET "line_item_id" = $1, "updated_at" = $2 WHERE "payments"."id" = $3[0m  [["line_item_id", 123], ["updated_at", "2017-11-24 22:18:00.179623"], ["id", 1]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.5ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" ORDER BY "payments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPayment Load (0.3ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.1ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.4ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'payment_race_test_test'[0m
+  [1m[35m (284.2ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:18:00.500786"], ["updated_at", "2017-11-24 22:18:00.500786"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" IS NULL LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 1], ["created_at", "2017-11-24 22:18:00.511844"], ["updated_at", "2017-11-24 22:18:00.511844"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.4ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" IS NULL AND "payments"."service_id" = $1 LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.3ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 1], ["id", 1], ["line_item_id", 100500], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 100500], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "payments" SET "line_item_id" = $1, "updated_at" = $2 WHERE "payments"."id" = $3[0m  [["line_item_id", 100500], ["updated_at", "2017-11-24 22:18:00.526435"], ["id", 1]]
+  [1m[35m (13.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.4ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "payments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (266.7ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "services" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-11-24 22:18:00.833057"], ["updated_at", "2017-11-24 22:18:00.833057"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" IS NULL LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 1], ["created_at", "2017-11-24 22:18:00.844585"], ["updated_at", "2017-11-24 22:18:00.844585"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.5ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" IS NULL AND "payments"."service_id" = $1 LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.5ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 1], ["id", 1], ["line_item_id", 100500], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 100500], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "payments" SET "line_item_id" = $1, "updated_at" = $2 WHERE "payments"."id" = $3[0m  [["line_item_id", 100500], ["updated_at", "2017-11-24 22:18:00.881862"], ["id", 1]]
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPayment Load (0.3ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."line_item_id" IS NULL AND "payments"."service_id" = $1 LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mService Load (0.2ms)[0m  [1m[34mSELECT  "services".* FROM "services" WHERE "services"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND "payments"."line_item_id" IS NULL LIMIT $2[0m  [["service_id", 1], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "payments" ("service_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["service_id", 1], ["created_at", "2017-11-24 22:18:00.915032"], ["updated_at", "2017-11-24 22:18:00.915032"]]
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPayment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."service_id" = $1 AND ("payments"."id" != $2) AND "payments"."line_item_id" = $3 LIMIT $4[0m  [["service_id", 1], ["id", 2], ["line_item_id", 100500], ["LIMIT", 1]]
+  [1m[36mPayment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "payments" WHERE "payments"."line_item_id" = $1 AND ("payments"."id" != $2) LIMIT $3[0m  [["line_item_id", 100500], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "payments" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "services" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (244.0ms)[0m  [1m[35mTRUNCATE TABLE "public"."payments", "public"."services", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "payments" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "services" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m

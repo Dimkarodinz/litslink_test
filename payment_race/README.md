@@ -1,12 +1,15 @@
 ### Solution
-1. Added indexes to make sure payment with both #service_id and #line_item_id is unique
-  [a relative link](db/migrate/20171123195145_create_payments.rb)
+1. Added indexes to make sure payment with both #service_id and #line_item_id are unique
+  [payments migration](db/migrate/20171123195145_create_payments.rb)
 
 2. Writed tests
-  [a relative link](spec/models/payment_spec.rb)
+  [tests for Payment.with](spec/models/payment_spec.rb)
 
 3. Implemented payment.with
-  [a relative link](app/models/payment.rb)
+  [Payment.with method](app/models/payment.rb)
+
+4. Incapsulated concurency safe update into service. Good for reusability
+  [ThreadSaveUpdate service](app/services/thread_safe_update.rb)
 
 
 ### Task description
