@@ -44,11 +44,10 @@ describe Payment, type: :model do
   end
 
 
-  context '.with' do
+  context '.with', as_truncation: true do
     let(:payment) { create :payment }
 
     it 'creates instance if not present with same attributes' do
-      expect(described_class.count).to eq 0
       described_class.with(:line_item_id => 1, service_id: service.id)
 
       new_payment = described_class.last
@@ -58,12 +57,12 @@ describe Payment, type: :model do
 
     it 'updates new instance' do
       described_class.with(line_item_id: 1, service_id: service.id) do |payment|
-        payment.line_item_id = 100500
+        payment.line_item_id = 123
       end
 
       new_payment = described_class.last
       new_payment.reload
-      expect(new_payment.line_item_id).to eq 100500
+      expect(new_payment.line_item_id).to eq 123
     end
 
     it 'updates existing instance' do

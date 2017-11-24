@@ -4,65 +4,64 @@ class Payment < ApplicationRecord
   validates :service, uniqueness: { scope: :line_item_id }
   validates :line_item_id, uniqueness: true
 
-  def self.with(line_item_id:, service_id:)
-    payment = self.find_or_create_by(line_item_id: line_item_id, service_id: service_id)
-    yield(payment) if block_given?
-    payment.save
-  end
+  # non-thread version
+  # def self.with(line_item_id:, service_id:)
+  #   payment = self.find_or_create_by(line_item_id: line_item_id, service_id: service_id)
+  #   yield(payment) if block_given?
+  #   payment.save
+  # end
 
   # concurency .with with queue
-  # def self.with(line_item_id:, service_id:, &block)
-  #   # byebug
-  #   payment = self.find_or_create_by(line_item_id: line_item_id, service_id: service_id)
-  #   # p payment.errors.full_messages
-  #   actual_payment_thread = Thread.list.select { |t| t.status == 'run' && t[:payment_id] == payment.id }.first
+  # 1. find or create payment
+  # 2. look for thread with same payment_id
+  #    2.1 if present, then add to thread queue
+  #    2.2 if not present, then create thread with queue, add self to it
+  #    2.3. loop unitl queue empty > update payment
+  #    2.4. when queue nil, stop thread; close queue
+  def self.with(line_item_id:, service_id:, &block)
+    payment = self.find_or_create_by(line_item_id: line_item_id, service_id: service_id)
 
-  #   # payment.id == nil?
-  #   if actual_payment_thread
-  #     # byebug
-  #     actual_payment_thread[:queue] << payment.id
+    actual_payment_thread = self.get_payment_thread(payment)
 
-  #   else
-  #     queue = Queue.new
-  #     queue << payment.id
-  #     # byebug
-  #     Thread.new do
+    if actual_payment_thread
+      actual_payment_thread[:queue] << payment.id
+    else
+      queue = Queue.new
+      queue << payment
+      create_payment_thread(queue, payment, &block)
+    end
+  end
 
+  def self.with_update_payment(payment)
+    ActiveRecord::Base.connection_pool.with_connection do
+      yield(payment) if block_given?
+      payment.save
+    end
+  end
 
-  #       Thread.current[:payment_id] = payment.id
-  #       Thread.current[:queue]      = queue
+  private
 
-  #       # self.with_update_payment(payment_id)
+  def self.get_payment_thread(payment)
+    tr_arr = Thread.list.select do |t|
+      t.status == 'run' && t[:payment] == payment
+    end
 
-  #       # queue << payment_id
+    tr_arr.first
+  end
 
-  #       until queue.empty?
-  #         payment_id = queue.pop rescue nil
+  def self.create_payment_thread(queue, payment, &block)
+    tr = Thread.new do
+      Thread.current[:payment] = payment
+      Thread.current[:queue]   = queue
 
-  #         if payment_id
-  #           self.with_update_payment(payment_id)
-  #         end
-  #         # payment = Payment.find_by_id(payment)
-  #         # yield(payment) if block_given?
-  #         # payment.save
-  #       end
+      until queue.empty?
+        member_payment = queue.pop rescue nil
+        self.with_update_payment(payment, &block) if member_payment
+      end
 
-  #       queue.close
-  #     end
-  #   end
-  # end
+      queue.close
+    end
 
-  # # private
-
-  # def self.with_update_payment(payment_id)
-  #   byebug
-  #   payment = self.find(payment_id)
-  #   payment.line_item_id = 3014
-  #   # yield(payment) if block_given?
-  #   # yield(payment) if block_given?
-  #   # block.call(payment) if block_given?
-  #   payment.save
-
-  #   p payment.errors.full_messages
-  # end
+    tr.join
+  end
 end
