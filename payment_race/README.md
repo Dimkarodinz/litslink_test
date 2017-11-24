@@ -1,3 +1,16 @@
+### Solution
+1. Added indexes to make sure payment with both #service_id and #line_item_id is unique
+  [a relative link](db/migrate/20171123195145_create_payments.rb)
+
+2. Writed tests
+  [a relative link](spec/models/payment_spec.rb)
+
+3. Implemented payment.with
+  [a relative link](app/models/payment.rb)
+
+
+### Task description
+
 Find or create an object by a unique key and update it without introducing any extra objects.
 
 Let’s assume that an external API is being polled for payments. The actual external API is irrelevant to this task, what really matters is that each payment has a line_item_id and belongs to a service. A line_item_id is unique in the scope of a service. 

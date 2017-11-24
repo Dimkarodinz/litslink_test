@@ -62,6 +62,7 @@ describe Payment, type: :model do
       end
 
       new_payment = described_class.last
+      new_payment.reload
       expect(new_payment.line_item_id).to eq 100500
     end
 

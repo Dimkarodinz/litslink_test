@@ -1,6 +1,4 @@
 RSpec.configure do |config|
-  DatabaseCleaner.strategy = :transaction
-
   config.around(:each) do |example|
     DatabaseCleaner.strategy = self.class.metadata[:as_truncation] ? :truncation : :transaction
     DatabaseCleaner.start
