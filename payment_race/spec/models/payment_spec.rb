@@ -77,7 +77,7 @@ describe Payment, type: :model do
     end
 
 
-    describe 'safe in concurency', clean_as_group: true do
+    describe 'safe in concurency', as_truncation: true do
       before do
         cond_args  = {line_item_id: payment.line_item_id, service_id: payment.service_id}
         cond_block = Proc.new { |payment| payment.line_item_id = 100500 }
