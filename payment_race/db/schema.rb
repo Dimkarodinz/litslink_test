@@ -15,18 +15,14 @@ ActiveRecord::Schema.define(version: 20171123195145) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "line_items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.bigint "services_id"
+  create_table "payments", force: :cascade do |t|
+    t.bigint "service_id"
     t.bigint "line_item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["services_id", "line_item_id"], name: "index_posts_on_services_id_and_line_item_id", unique: true
-    t.index ["services_id"], name: "index_posts_on_services_id"
+    t.index ["line_item_id"], name: "index_payments_on_line_item_id", unique: true
+    t.index ["service_id", "line_item_id"], name: "index_payments_on_service_id_and_line_item_id", unique: true
+    t.index ["service_id"], name: "index_payments_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -34,5 +30,5 @@ ActiveRecord::Schema.define(version: 20171123195145) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "posts", "services", column: "services_id"
+  add_foreign_key "payments", "services"
 end
